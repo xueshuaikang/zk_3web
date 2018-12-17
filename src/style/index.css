@@ -1,0 +1,26 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "微软雅黑";
+  box-sizing: border-box; }
+
+.adress_tyle {
+  width: 200px;
+  height: 30px;
+  border: thin solid #ccc;
+  display: flex; }
+  .adress_tyle span {
+    cursor: pointer;
+    padding: 3px 10px;
+    transition: 2s; }
+
+.timer {
+  display: flex;
+  border: thin solid #ccc;
+  width: 200px;
+  height: 30px;
+  margin-top: 10px; }

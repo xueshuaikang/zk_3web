@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>初始页面</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <script src="./script/jquery.js"></script>
+</head>
+<body>
+    <!-- 交换位置 -->
+	<div class="adress_tyle">
+		<h3 class="adress_start">北京</h3>
+		<span class="tyle_ok">交换</span>
+		<h3 class="adress_end">上海</h3>
+	</div>
+    
+    <div class="timer">
+        <h3 class="timer_month">12<b>月</b></h3>
+        <h3 class="timer_day">12<b>日</b></h3>
+    </div>
+    <button type="button" class="btn">提交</button>
+	
+    <script>
+      function $js(ele){
+          return document.querySelector(ele);
+      }
+
+    $js(".tyle_ok").addEventListener("click",function(){
+        let adressStart=$js(".adress_start").innerText,
+            adressEnd=$js(".adress_end").innerText;
+
+        this.style.transform="rotate(360deg)";
+
+        $js(".adress_start").innerText=adressEnd;
+        $js(".adress_end").innerText=adressStart;
+    })
+
+
+    $js(".btn").addEventListener("click",function(){
+        $.ajax({
+            url:"/users/conmon",
+            data:{
+                year:2018,
+                month:$js(".timer_month").innerText,
+                day:$js(".timer_day").innerText
+            },
+            type:"post",
+            succrss:function(data){
+                console.log(data)
+                if(data.code==9){
+                    location.href="./all_type.html?year="+2018+"&"+"month="+$js(".timer_month").innerText+"&"+"day="+$js(".timer_day").innerText;
+                }
+            }
+        })
+    })
+
+    </script>
+</body>
+</html>
